@@ -1,8 +1,12 @@
 <div class="card mt-3">
   <div class="card-body d-flex flex-row">
-    <i class="fas fa-user-circle fa-3x mr-1"></i>
+    <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
+      <i class="fas fa-user-circle fa-3x mr-1"></i>
+    </a>
     <div>
-      <div class="font-weight-bold">{{ $article->user->name }}</div>
+      <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
+        <div class="font-weight-bold">{{ $article->user->name }}</div>
+      </a>
       <div class="font-weight-lighter">{{ $article->created_at->format('Y/m/d H:i') }}</div>
     </div>
     @if( Auth::id() === $article->user_id )
@@ -34,8 +38,7 @@
             </button>
           </div>
           <form method="POST" action="{{ route('articles.destroy', ['article' => $article]) }}">
-            @csrf
-            @method('DELETE')
+            @csrf @method('DELETE')
             <div class="modal-body">
               {{ $article->title }}を削除します。よろしいですか？
             </div>
@@ -68,18 +71,15 @@
         </article-like>
       </div>
     </div>
-    @foreach($article->tags as $tag)
-    @if($loop->first)
+    @foreach($article->tags as $tag) @if($loop->first)
     <div class="card-body pt-0 pb-4 pl-3">
       <div class="card-text line-height">
-    @endif
+        @endif
         <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
           {{ $tag->hashtag }}        
-        </a>
-    @if($loop->last)
+        </a> @if($loop->last)
       </div>
     </div>
-    @endif
-    @endforeach
+    @endif @endforeach
   </div>
 </div>
