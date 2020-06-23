@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand navbar-dark blue-gradient">
-  <a class="navbar-brand" href="/"><i class="far fa-sticky-note mr-1"></i>Memo</a>
+<nav class="navbar navbar-expand navbar-dark young-passion-gradient sticky-top">
+  <a class="navbar-brand" href="/"><i class="fas fa-book-open mr-1"></></i>MYNOTE</a>
   <ul class="navbar-nav ml-auto">
     @guest
     <li class="nav-item">
@@ -14,7 +14,7 @@
       
     @auth
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fas fa-pen mr-1"></i>投稿する</a>
+      <a class="nav-link" href="{{ route('articles.create') }}"><i class="far fa-edit"></i>投稿する</a>
     </li>
     @endauth
     @auth
@@ -22,7 +22,7 @@
       <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-user-circle"></i>
       </a>
-      <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+      <div class="dropdown-menu dropdown-menu-right dropdown-primary z-depth-1 border-0" aria-labelledby="navbarDropdownMenuLink">
         <button class="dropdown-item" type="button" 
                 onclick="location.href='{{ route("users.show",["name" => Auth::user()->name]) }}'">
           マイページ
