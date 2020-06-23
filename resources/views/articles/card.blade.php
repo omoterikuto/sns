@@ -1,9 +1,9 @@
-<div class="card mt-3">
+<div class="card mt-3 cloudy-knoxville-gradient">
   <div class="card-body d-flex flex-row">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
       <i class="fas fa-user-circle fa-3x mr-1"></i>
     </a>
-    <div>
+    <div class="ml-2">
       <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
         <div class="font-weight-bold">{{ $article->user->name }}</div>
       </a>
@@ -16,9 +16,9 @@
         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-ellipsis-v"></i>
         </a>
-        <div class="dropdown-menu dropdown-menu-right">
+        <div class="dropdown-menu dropdown-menu-right z-depth-1 border-0">
           <a class="dropdown-item" href="{{ route("articles.edit", ['article' => $article]) }}">
-            <i class="fas fa-pen mr-1"></i>記事を更新する
+            <i class="far fa-edit mr-1"></i>記事を更新する
           </a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $article->id }}">
