@@ -19,8 +19,12 @@ class ArticleController extends Controller
 
   public function index()
   {
-    $articles = Article::all()->sortByDesc('created_at')->load(['user', 'likes', 'tags']);
-    return view('articles.index', ['articles' => $articles]);
+    $articles_data = Article::paginate(10);
+    $articles = $articles_data->sortByDesc('created_at')->load(['user', 'likes', 'tags']);
+    return view('articles.index', [
+      'articles_data' => $articles_data,
+      'articles' => $articles,
+    ]);
   }
 
   public function create()
