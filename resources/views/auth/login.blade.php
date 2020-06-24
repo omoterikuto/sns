@@ -29,8 +29,15 @@
                 <button class="btn btn-block young-passion-gradient mt-2 mb-2 text-white" type="submit">ログイン</button>
               </form>
               <div class="mt-0">
-                <a href="{{ route('register') }}" class="card-text">ユーザー登録はこちら</a>
+                <a href="{{ route('register') }}" class="card-text mt-1">ユーザー登録はこちら</a>
               </div>
+              <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <input type="hidden" id="email" name="email" required value="example@mail.com">
+                <input type="hidden" id="password" name="password" required value="password">
+                <p class="mt-4 mb-0">または</p>
+                <button class="btn btn-inline young-passion-gradient mt-1 mb-1 text-white" type="submit">デモユーザーで簡単ログイン</button>
+              </form>
             </div>
           </div>
         </div>
