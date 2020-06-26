@@ -4,11 +4,12 @@
 
 @section('content')
   @include('nav')
-  <div class="container pb-3">
+  <div class="container">
     @foreach($articles as $article)
       @include('articles.card')
     @endforeach
     <div class="d-flex justify-content-center">
-      {{ $articles_data->links('vendor.pagination.default') }}    </div>
+      {{ $articles_obj->links('vendor.pagination.default') }}
+    </div>
   </div>
 @endsection
