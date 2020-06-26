@@ -67,4 +67,26 @@ class UserController extends Controller
     $request->user()->followings()->detach($user);
     return ['name' => $name];
   }
+
+  public function showTl(string $name)
+  {
+    $article_list = array();
+    $user = User::where('name', $name)->first();
+    $followings = $user->followings->load(['articles.user', 'articles.likes', 'articles.tags']);
+    foreach ($followings as $following) {
+      $articles_list = array();
+      $articles_list = $following->articles;
+      foreach ($articles_list as $list) {
+        $article_list[] = $list;
+      }
+    }
+    foreach ($article_list as $key => $value) {
+      $id[$key] = $value['created_at'];
+    }
+    array_multisort($id, SORT_DESC, $article_list);
+    return view('users.showtl', [
+      'user' => $user,
+      'articles' => $article_list,
+    ]);
+  }
 }
