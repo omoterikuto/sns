@@ -1,4 +1,4 @@
-<div class="card mt-3">
+<div class="card mt-3 cloudy-knoxville-gradient">
   <div class="card-body">
     <div class="d-flex flex-row">
       <a href="{{ route('users.show', ['name' => $person->name]) }}" class="text-dark">

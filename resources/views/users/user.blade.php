@@ -1,4 +1,4 @@
-<div class="card mt-3">
+<div class="card mt-3 cloudy-knoxville-gradient">
   <div class="card-body">
     <div class="d-flex flex-row">
       <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
@@ -16,13 +16,15 @@
           :authorized='@json(Auth::check())'
           endpoint="{{ route('users.follow', ['name' => $user->name]) }}">
         </follow-button>
+      @elseif( Auth::id() == $user->id )
+        <a class="ml-auto" href="{{ route('users.edit', ['name' => $user->name]) }}"><small>編集</small></a>
       @endif
     </div>
   </div>
   <div class="card-body">
-  <p>初めまして。よろしくお願いします！初めまして。よろしくお願いします！初めまして。よろしくお願いします！初めまして。よろしくお願いします！初めまして。よろしくお願いします！
-    <a href="">編集</a>
-  </p>
+    <p>
+      {{ $user->profile }}
+    </p>
   </div>
   <div class="card-body">
     <div class="card-text">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProfileRequest;
 
 class UserController extends Controller
 {
@@ -87,6 +88,24 @@ class UserController extends Controller
     return view('users.showtl', [
       'user' => $user,
       'articles' => $article_list,
+    ]);
+  }
+  public function edit(string $name)
+  {
+    $user = User::where('name', $name)->first();
+    return view('users.edit', [
+      'user' => $user,
+    ]);
+  }
+  public function update(ProfileRequest $request)
+  {
+    $user_id = $request->user()->id;
+    User::where('id', $user_id)->update([
+      'profile' => $request->profile,
+      'name' => $request->name
+    ]);
+    return redirect()->route('users.show', [
+      'name' => $request->name,
     ]);
   }
 }
