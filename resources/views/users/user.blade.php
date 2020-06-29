@@ -17,7 +17,14 @@
           endpoint="{{ route('users.follow', ['name' => $user->name]) }}">
         </follow-button>
       @elseif( Auth::id() == $user->id )
-        <a class="ml-auto" href="{{ route('users.edit', ['name' => $user->name]) }}"><small>編集</small></a>
+        <a class="ml-auto border border-primary" href="{{ route('users.edit', ['name' => $user->name]) }}" 
+        style="
+        margin: 7px 0;
+        line-height: 2.6;
+        font-size: 13px;
+        padding: 0 13px;
+        border-radius: 3px;">
+        編集</a>
       @endif
     </div>
   </div>

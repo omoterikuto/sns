@@ -23,12 +23,14 @@
                     <input class="form-control mb-0 pt-2" type="text" id="name" name="name" required value="{{ $user->name }}">
                   </div>
                 </div>
-                <div class="md-form">
-                  <label>プロフィール文</label>
-                  <textarea class="form-control pt-2 md-textarea" id="" name="profile">{{ $user->profile }}</textarea>
+                <div class="md-form mb-0">
+                  <label class="mb-3">プロフィール文</label>
+                  <textarea class="form-control md-textarea" id="" name="profile">{{ $user->profile }}</textarea>
                 </div>
               </div>
-              <button type="submit" class="btn text-white young-passion-gradient btn-block">更新する</button>
+              <div class="text-right">
+                <button type="submit" class="btn text-white young-passion-gradient text-center">更新する</button>
+              </div>
             </form>
           </div>
       </div>
