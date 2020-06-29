@@ -1,9 +1,11 @@
 <div class="card mt-3 cloudy-knoxville-gradient">
   <div class="card-body">
     <div class="d-flex flex-row">
-      <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
+      @if(isset($user->user_image))
+        <img class="rounded-circle" src="/storage/{{$user->user_image}}" alt="ユーザー画像" width="48px" style="object-fit: cover; min-height:48px;">
+      @else
         <i class="fas fa-user-circle fa-3x"></i>
-      </a>
+      @endif
       <h2 class="h5 card-title ml-3 mt-2">
         <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
           {{ $user->name }}

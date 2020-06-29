@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -100,6 +101,17 @@ class UserController extends Controller
   public function update(ProfileRequest $request)
   {
     $user_id = $request->user()->id;
+    // ユーザー画像処理
+    if (isset($request->user_image)) {
+      Storage::delete('public/' . $request->user()->user_image);
+      $original_image = $request->user_image;
+      $filePath = $original_image->store('public');
+      $file_name = str_replace('public/', '', $filePath);
+      User::where('id', $user_id)->update([
+        'user_image' => $file_name
+      ]);
+    }
+    // ユーザーネーム、プロフィール処理
     User::where('id', $user_id)->update([
       'profile' => $request->profile,
       'name' => $request->name
