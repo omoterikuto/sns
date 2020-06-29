@@ -4,7 +4,7 @@
 
 @section('content')
   @include('nav')
-  <div class="container">
+  <div class="container pb-3">
     @include('users.user')
     @include('users.tabs', ['hasArticles' => true, 'hasLikes' => false])
     @foreach($articles as $article)
