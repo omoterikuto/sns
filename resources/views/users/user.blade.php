@@ -2,18 +2,18 @@
   <div class="card-body">
     <div class="d-flex flex-row">
       @if(isset($user->user_image))
-        <img class="rounded-circle" src="/storage/{{$user->user_image}}" alt="ユーザー画像" width="48px" style="object-fit: cover; min-height:48px;">
+        <image-modal :image-pass='@json($user->user_image)'></image-modal>
       @else
-        <i class="fas fa-user-circle fa-3x"></i>
+        <i class="fas fa-user-circle" style="font-size: 60px;"></i>
       @endif
-      <h2 class="h5 card-title ml-3 mt-2">
+      <h5 class="card-title ml-3 mt-3">
         <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
           {{ $user->name }}
         </a>
-      </h2>
+      </h5>
       @if( Auth::id() !== $user->id )
         <follow-button
-          class="ml-auto"
+          class="ml-auto mt-2"
           :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
           :authorized='@json(Auth::check())'
           endpoint="{{ route('users.follow', ['name' => $user->name]) }}">
@@ -21,8 +21,8 @@
       @elseif( Auth::id() == $user->id )
         <a class="ml-auto border border-primary" href="{{ route('users.edit', ['name' => $user->name]) }}" 
         style="
-        margin: 7px 0;
-        line-height: 2.6;
+        margin: 11px 0;
+        line-height: 2.7;
         font-size: 13px;
         padding: 0 13px;
         border-radius: 3px;">
