@@ -16,22 +16,22 @@
             <div class="card-text">
               <form method="POST" action="{{ route('register') }}">
                 @csrf
-                <div class="md-form">
+                <div class="text-left">
                   <label for="name">ユーザー名</label>
-                  <input class="form-control" type="text" id="name" name="name" required value="{{ old('name') }}">
+                  <input class="shadow-inset" type="text" id="name" name="name" required value="{{ old('name') }}">
                   <small>3〜16文字</small>
                 </div>
-                <div class="md-form">
+                <div class="text-left mt-3">
                   <label for="email">メールアドレス</label>
-                  <input class="form-control" type="text" id="email" name="email" required value="{{ old('email') }}" >
+                  <input class="shadow-inset" type="text" id="email" name="email" required value="{{ old('email') }}" >
                 </div>
-                <div class="md-form">
+                <div class="text-left mt-3">
                   <label for="password">パスワード</label>
-                  <input class="form-control" type="password" id="password" name="password" required>
+                  <input class="shadow-inset" type="password" id="password" name="password" required>
                 </div>
-                <div class="md-form">
+                <div class="text-left mt-3">
                   <label for="password_confirmation">パスワード(確認)</label>
-                  <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" required>
+                  <input class="shadow-inset" type="password" id="password_confirmation" name="password_confirmation" required>
                 </div>
                 <button class="btn btn-block young-passion-gradient text-white mt-2 mb-2" type="submit">ユーザー登録</button>
               </form>

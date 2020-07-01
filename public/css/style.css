@@ -3,10 +3,32 @@ body {
   background-color: #fafafa;
 }
 
+.post-user-icon {
+  object-fit: cover;
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+  box-shadow: 3.6px 3.6px 5px #CECECE, -3.6px -3.6px 5px #FFFFFF;
+}
+
+.profile-user-icon {
+  object-fit: cover;
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  box-shadow: 3.6px 3.6px 5px #CECECE, -3.6px -3.6px 5px #FFFFFF;
+}
+
+.card {
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 3.6px 3.6px 5px #CECECE, -3.6px -3.6px 5px #FFFFFF;
+}
+
 .page-link-btn {
   width: 30px;
-  box-shadow: 3px 3px 3px #E2E2E2, -3px -3px 3px #FFFFFF;
-  margin-left: 6px;
+  box-shadow: 2.1px 2.1px 2px #C9C9C9, -2.1px -2.1px 2px #FFFFFF;
+  margin: 0 4px;
   background: #f9f9f9;
   border-radius: 2px;
   position: relative;
@@ -14,4 +36,72 @@ body {
   padding: .5rem .75rem;
   line-height: 1.25;
   color: #212529;
+}
+
+.tab {
+  background-color: #fafafa !important;
+}
+
+.nav-link.active {
+  border-bottom: 1px solid #fafafa !important;
+}
+
+textarea,
+textarea:focus {
+  padding: 10px;
+  width: 100%;
+  outline: none;
+  border: none;
+  background: #fafafa;
+  border-radius: 5px;
+  box-shadow: inset 4.8px 4.8px 5px #E1E1E1, inset -4.8px -4.8px 5px #FFFFFF;
+}
+
+.shadow-inset {
+  color: inherit;
+  width: 100%;
+  padding: 8px;
+  outline: none;
+  border: none;
+  background: #fafafa;
+  border-radius: 5px;
+  box-shadow: inset 2.1px 2.1px 2px #C9C9C9, inset -2.1px -2.1px 2px #FFFFFF;
+}
+
+.shadow-outset {
+  box-shadow: 4.8px 4.8px 5px #E1E1E1, -4.8px -4.8px 5px #FFFFFF;
+}
+
+.ti-input {
+  border: none !important;
+  padding: 0;
+}
+
+.vue-tags-input {
+  background: #fafafa !important;
+}
+
+.ti-new-tag-input {
+  background: #fafafa;
+}
+
+.ti-tag {
+  border: none !important;
+  box-shadow: 4.8px 4.8px 5px #E1E1E1, -4.8px -4.8px 5px #FFFFFF;
+}
+
+.edit-btn {
+  box-shadow: inset 2.1px 2.1px 2px #C9C9C9, inset -2.1px -2.1px 2px #FFFFFF;
+  color: #666;
+  margin: 14px 0;
+  line-height: 2.6;
+  font-size: 13px;
+  padding: 0 12px;
+  border-radius: 3px;
+}
+
+.timeline-title {
+  box-shadow: 4.8px 4.8px 5px #E1E1E1, -4.8px -4.8px 5px #FFFFFF;
+  color: #ff5643;
+  font-weight: bold;
 }

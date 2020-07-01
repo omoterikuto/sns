@@ -2,7 +2,12 @@
   <div>
     <div>
       <a @click="openModal">
-        <img class="rounded-circle" :src="'/storage/' + ImagePass " width="60px" height="60px" />
+        <img
+          class="rounded-circle profile-user-icon"
+          :src="'/storage/' + ImagePass "
+          width="60px"
+          height="60px"
+        />
       </a>
     </div>
     <transition name="modal">
