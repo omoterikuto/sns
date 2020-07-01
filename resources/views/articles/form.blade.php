@@ -1,7 +1,7 @@
 @csrf
-<div class="md-form">
+<div class="mt-3 mb-3">
   <label>タイトル</label>
-  <input type="text" name="title" class="form-control" required value="{{ $article->title ?? old('title') }}">
+  <input type="text" name="title" class="shadow-inset" required value="{{ $article->title ?? old('title') }}">
 </div>
 <div class="form-group">
   <article-tags-input 
@@ -9,7 +9,7 @@
     :autocomplete-items='@json($allTagNames ?? [])'>
   </article-tags-input>
 </div>
-<div class="form-group">
-  <label></label>
-  <textarea name="body" required class="form-control" rows="16" placeholder="本文">{{ $article->body ?? old('body') }}</textarea>
+<div>
+  <label>本文</label>
+  <textarea name="body" required rows="16">{{ $article->body ?? old('body') }}</textarea>
 </div>

@@ -20,18 +20,18 @@
                 @else
                 <i class="fas fa-user-circle" style="font-size: 60px;"></i>
                 @endif
-                <div class="ml-auto md-form">
+                <div class="ml-auto mb-3">
                   <label for="name">ユーザー名</label>
-                  <input class="form-control mb-0 pt-2" type="text" id="name" name="name" required value="{{ $user->name }}">
+                  <input class="shadow-inset mb-0 pt-2" type="text" id="name" name="name" required value="{{ $user->name }}">
                 </div>
               </div>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFileLangHTML" name="user_image">
-                <label class="custom-file-label" for="customFileLangHTML" data-browse="ファイルを選択">ユーザー画像</label>
+              <div class="">
+                <label data-browse="ファイルを選択">ユーザー画像</label>
+                <input type="file" class="shadow-inset" name="user_image">
               </div>
-              <div class="md-form mb-0">
-                <label class="mb-3">プロフィール文</label>
-                <textarea class="form-control md-textarea" id="" name="profile">{{ $user->profile }}</textarea>
+              <div class="mb-0">
+                <label class="mt-2">プロフィール文</label>
+                <textarea class="" id="" name="profile">{{ $user->profile }}</textarea>
               </div>
             </div>
             <div class="text-right">

@@ -2,9 +2,9 @@
   <div class="card-body d-flex flex-row">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
       @if(isset($article->user->user_image))
-        <img class="rounded-circle z-depth-1" src="/storage/{{$article->user->user_image}}" alt="ユーザー画像" width="48px" style="object-fit: cover; min-height:48px;">
+        <img class="post-user-icon z-depth-1" src="/storage/{{$article->user->user_image}}" alt="ユーザー画像">
       @else
-        <i class="fas fa-user-circle fa-3x" style="filter:drop-shadow(0 0 3px #bbb)"></i>
+        <i class="fas fa-user-circle fa-3x post-user-icon"></i>
       @endif
     </a>
     <div class="ml-2">
@@ -79,7 +79,7 @@
     <div class="card-body pt-0 pb-4 pl-3">
       <div class="card-text line-height">
         @endif
-        <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
+        <a class="shadow-inset" href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
           {{ $tag->hashtag }}        
         </a> @if($loop->last)
       </div>

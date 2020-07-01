@@ -14,18 +14,18 @@
             <div class="card-text">
               <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <div class="md-form">
+                <div class="text-left">
                   <label for="email">メールアドレス</label>
-                  <input class="form-control" type="text" id="email" name="email" required value="{{ old('email') }}">
+                  <input class="shadow-inset" type="text" id="email" name="email" required value="{{ old('email') }}">
                 </div>
-                <div class="md-form">
+                <div class="text-left mt-3 mb-2">
                   <label for="password">パスワード</label>
-                  <input class="form-control" type="password" id="password" name="password" required>
+                  <input class="shadow-inset" type="password" id="password" name="password" required>
                 </div>
                 <input type="hidden" name="remember" id="remember" value="on">
-                <div class="text-left">
+                {{-- <div class="text-left">
                   <a href="{{ route('password.request') }}" class="card-text">パスワードを忘れた方</a>
-                </div>
+                </div> --}}
                 <button class="btn btn-block young-passion-gradient mt-2 mb-2 text-white" type="submit">ログイン</button>
               </form>
               <div class="mt-0">
