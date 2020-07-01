@@ -1,10 +1,10 @@
 @if ($paginator->hasPages())
 <ul class="pagination mt-3 ml-auto" role="navigation">
   <li class="page-item {{ $paginator->onFirstPage() ? ' disabled' : '' }}">
-    <a class="page-link border" href="{{ $paginator->url(1) }}">&laquo;</a>
+    <a class="page-link-btn" href="{{ $paginator->url(1) }}">&laquo;</a>
   </li>
   <li class="page-item {{ $paginator->onFirstPage() ? ' disabled' : '' }}">
-    <a class="page-link border" href="{{ $paginator->previousPageUrl() }}">&lsaquo;</a>
+    <a class="page-link-btn" href="{{ $paginator->previousPageUrl() }}">&lsaquo;</a>
   </li>
   @foreach ($elements as $element)
   @if (is_string($element))
@@ -21,10 +21,10 @@
   @endif
   @endforeach
   <li class="page-item {{ $paginator->currentPage() == $paginator->lastPage() ? ' disabled' : '' }}">
-    <a class="page-link border" href="{{ $paginator->nextPageUrl() }}">&rsaquo;</a>
+    <a class="page-link-btn" href="{{ $paginator->nextPageUrl() }}">&rsaquo;</a>
   </li>
   <li class="page-item {{ $paginator->currentPage() == $paginator->lastPage() ? ' disabled' : '' }}">
-    <a class="page-link border" href="{{ $paginator->url($paginator->lastPage()) }}">&raquo;</a>
+    <a class="page-link-btn" href="{{ $paginator->url($paginator->lastPage()) }}">&raquo;</a>
   </li>
 </ul>
 @endif
