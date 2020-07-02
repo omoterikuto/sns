@@ -64,8 +64,17 @@
       </a>
     </h3>
     <div class="card-text">
-      {!! nl2br(e( $article->body )) !!}
+      @if(isset($show_all))
+        {!! nl2br(e($article->body)) !!}
+      @else
+        {!! nl2br(e( Str::limit($article->body, 200 ))) !!}
+      @endif
     </div>
+    @if(strlen($article->body) > 200 && !isset($show_all))
+    <div class="text-right pr-3 mt-2">
+      <a class="shadow-inset px-2 py-1" href="{{ route('articles.show', ['article' => $article]) }}"><small>続きを読む</small></a>
+    </div>
+    @endif
     <div class="card-body pt-0 pb-2 pl-0">
       <div class="card-text">
         <article-like :initial-is-liked-by='@json($article->isLikedBy(Auth::user()))' 
@@ -76,7 +85,7 @@
       </div>
     </div>
     @foreach($article->tags as $tag) @if($loop->first)
-    <div class="card-body pt-0 pb-4 pl-3">
+    <div class="card-body pt-0 pb-4 pl-0">
       <div class="card-text line-height">
         @endif
         <a class="shadow-inset" href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">

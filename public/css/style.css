@@ -68,8 +68,12 @@ textarea:focus {
   box-shadow: inset 2.1px 2.1px 2px #C9C9C9, inset -2.1px -2.1px 2px #FFFFFF;
 }
 
+a.shadow-inset {
+  margin-right: 3px;
+}
+
 .shadow-outset {
-  box-shadow: 4.8px 4.8px 5px #E1E1E1, -4.8px -4.8px 5px #FFFFFF;
+  box-shadow: 2.1px 2.1px 2px #C9C9C9, -2.1px -2.1px 2px #FFFFFF;
 }
 
 .ti-input {

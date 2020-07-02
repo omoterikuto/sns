@@ -5,6 +5,6 @@
 @section('content')
   @include('nav')
   <div class="container">
-    @include('articles.card')
+    @include('articles.card',['show_all' => true])
   </div>
 @endsection
