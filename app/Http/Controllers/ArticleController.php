@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\User;
+use App\Comment;
 use App\Tag;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
@@ -80,7 +82,16 @@ class ArticleController extends Controller
 
   public function show(Article $article)
   {
-    return view('articles.show', ['article' => $article]);
+    $comments_obj = Comment::where('article_id', $article->id)->orderBy('created_at', 'DESC')->paginate(10);
+    $comments = $comments_obj->load(['user']);
+    return view(
+      'articles.show',
+      [
+        'article' => $article,
+        'comments' => $comments,
+        'comments_obj' => $comments_obj
+      ]
+    );
   }
 
   public function like(Request $request, Article $article)
