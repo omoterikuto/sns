@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class ProfileRequest extends FormRequest
+class CommentRequest extends FormRequest
 {
   /**
    * Determine if the user is authorized to make this request.
@@ -25,15 +24,13 @@ class ProfileRequest extends FormRequest
   public function rules()
   {
     return [
-      'name' => ['required', 'string', 'alpha_num', 'min:3', 'max:16', Rule::unique('App\User')->ignore($this->user()->id)],
-      'profile' => ['max:100']
+      'comment' => ['required', 'string', 'max:200']
     ];
   }
   public function attributes()
   {
     return [
-      'name' => 'ユーザーネーム',
-      'profile' => 'プロフィール文',
+      'comment' => 'コメント',
     ];
   }
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\User;
 use App\Comment;
 use App\Tag;
 use App\Http\Requests\ArticleRequest;

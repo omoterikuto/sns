@@ -1,8 +1,9 @@
 <h5 class="timeline-title my-3 mb-0 py-3 px-4 rounded-pill">コメント</h5>
+@include('error_card_list')
 <form method="POST" action="{{ route('articles.comment', ['article' => $article]) }}">
   @csrf
   <div>
-    <textarea name="comment" required rows="6"></textarea>
+    <textarea name="comment" rows="6"></textarea>
     <input type="hidden" name="article_id" value="{{$article->id}}">
   </div>
   <button type="submit" class="btn young-passion-gradient text-white d-block ml-auto">コメントする</button>
