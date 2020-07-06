@@ -12,21 +12,18 @@ class UserController extends Controller
   public function show(string $name)
   {
     $user = User::where('name', $name)->first()->load(['articles.user', 'articles.likes', 'articles.tags']);
-    $articles = $user->articles->sortByDesc('created_at');
+    $user_articles = $user->articles->sortByDesc('created_at');
+    $user = User::where('name', $name)->first()->load(['likes.user', 'likes.likes', 'likes.tags']);
+    $like_articles = $user->likes->sortByDesc('created_at');
     return view('users.show', [
       'user' => $user,
-      'articles' => $articles,
+      'user_articles' => $user_articles,
+      'like_articles' => $like_articles,
     ]);
   }
 
   public function likes(string $name)
   {
-    $user = User::where('name', $name)->first()->load(['likes.user', 'likes.likes', 'likes.tags']);
-    $articles = $user->likes->sortByDesc('created_at');
-    return view('users.likes', [
-      'user' => $user,
-      'articles' => $articles,
-    ]);
   }
 
   public function followings(string $name)
