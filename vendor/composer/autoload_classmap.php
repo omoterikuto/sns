@@ -30,6 +30,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\ArticleRequest' => $baseDir . '/app/Http/Requests/ArticleRequest.php',
+    'App\\Http\\Requests\\CommentRequest' => $baseDir . '/app/Http/Requests/CommentRequest.php',
     'App\\Http\\Requests\\ProfileRequest' => $baseDir . '/app/Http/Requests/ProfileRequest.php',
     'App\\Mail\\BareMail' => $baseDir . '/app/Mail/BareMail.php',
     'App\\Notifications\\PasswordResetNotification' => $baseDir . '/app/Notifications/PasswordResetNotification.php',

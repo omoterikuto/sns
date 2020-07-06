@@ -24,6 +24,48 @@
       </a>
       <div class="font-weight-lighter">{{ $article->created_at->format('Y/m/d H:i') }}</div>
     </div>
+    <div class="ml-auto">
+      @if( Auth::id() === $comment->user_id || Auth::id() === $article->id )
+      <!-- dropdown -->
+      <div class="ml-auto card-text">
+        <div class="dropdown">
+          <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right z-depth-1 border-0">
+            <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $comment->id }}">
+              <i class="fas fa-trash-alt mr-1"></i>記事を削除する
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- dropdown -->
+      <!-- modal -->
+      <div id="modal-delete-{{ $comment->id }}" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <form method="POST" action="{{ route('articles.comment.destroy', ['comment' => $comment]) }}">
+              @csrf @method('DELETE')
+              <div class="modal-body">
+                コメントを削除します。よろしいですか？
+              </div>
+              <input type="hidden" name="article_id" value="{{ $article->id }}">
+              <div class="modal-footer justify-content-between">
+                <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
+                <button type="submit" class="btn btn-danger">削除する</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- modal -->
+      @endif
+    </div>
   </div>
   <div class="card-text mt-2">
     {!! nl2br(e($comment->comment)) !!}

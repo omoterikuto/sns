@@ -4,7 +4,7 @@
 
 @section('content')
   @include('nav')
-  <div class="container">
+  <div class="container pb-4">
     @include('articles.card',['show_all' => true])
     @include('articles.comment')
   </div>
