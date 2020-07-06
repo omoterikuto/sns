@@ -1,4 +1,4 @@
-<div class="card mt-3 cloudy-knoxville-gradient">
+<div class="card mt-3">
   <div class="card-body d-flex flex-row">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
       @if(isset($article->user->user_image))
@@ -90,9 +90,11 @@
         @endif
         <a class="shadow-inset" href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
           {{ $tag->hashtag }}        
-        </a> @if($loop->last)
+        </a>
+        @if($loop->last)
       </div>
     </div>
-    @endif @endforeach
+    @endif
+    @endforeach
   </div>
 </div>
