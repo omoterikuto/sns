@@ -38,8 +38,9 @@ body {
   color: #212529;
 }
 
-.tab {
+.nav-tabs .nav-link {
   background-color: #fafafa !important;
+  color: inherit;
 }
 
 .nav-link.active {
