@@ -7,7 +7,7 @@
   <div class="container pb-4">
     <div class="card mt-3 cloudy-knoxville-gradient">
       <div class="card-body">
-        <h2 class="h4 card-title m-0">{{ $tag->hashtag }}</h2>
+        <h4 class="card-title m-0">{{ $tag->hashtag }}</h4>
         <div class="card-text text-right">
           {{ $tag->articles->count() }}件
         </div>

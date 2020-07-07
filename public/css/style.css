@@ -3,26 +3,51 @@ body {
   background-color: #fafafa;
 }
 
-.post-user-icon {
-  object-fit: cover;
-  height: 48px;
-  width: 48px;
-  border-radius: 100%;
-  box-shadow: 3.6px 3.6px 5px #CECECE, -3.6px -3.6px 5px #FFFFFF;
-}
-
-.profile-user-icon {
-  object-fit: cover;
-  height: 60px;
-  width: 60px;
-  border-radius: 100%;
-  box-shadow: 3.6px 3.6px 5px #CECECE, -3.6px -3.6px 5px #FFFFFF;
+li {
+  list-style: none;
 }
 
 .card {
   background: #fafafa;
   border-radius: 10px;
   box-shadow: 3.6px 3.6px 5px #CECECE, -3.6px -3.6px 5px #FFFFFF;
+}
+
+.not-animated-card {
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 3.6px 3.6px 5px #CECECE, -3.6px -3.6px 5px #FFFFFF;
+}
+
+.post-user-icon {
+  object-fit: cover;
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+  box-shadow: 2.0px 2.0px 4px #CECECE, -2.0px -2.0px 4px #FFFFFF;
+}
+
+.profile-user-icon {
+  object-fit: cover;
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+  box-shadow: 2.0px 2.0px 4px #CECECE, -2.0px -2.0px 4px #FFFFFF;
+}
+
+.profile-noimg::before {
+  border-radius: 100%;
+  font-size: 60px;
+  box-shadow: 2.0px 2.0px 4px #CECECE, -2.0px -2.0px 4px #FFFFFF;
+}
+
+.person-user-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  font-size: 40px;
+  border-radius: 100%;
+  box-shadow: 2.0px 2.0px 4px #CECECE, -2.0px -2.0px 4px #FFFFFF;
 }
 
 .page-link-btn {
@@ -66,7 +91,7 @@ textarea:focus {
   border: none;
   background: #fafafa;
   border-radius: 5px;
-  box-shadow: inset 2.1px 2.1px 2px #C9C9C9, inset -2.1px -2.1px 2px #FFFFFF;
+  box-shadow: inset 4.8px 4.8px 5px #E1E1E1, inset -4.8px -4.8px 5px #FFFFFF;
 }
 
 a.shadow-inset {
@@ -95,7 +120,9 @@ a.shadow-inset {
   box-shadow: 4.8px 4.8px 5px #E1E1E1, -4.8px -4.8px 5px #FFFFFF;
 }
 
-.edit-btn {
+.edit-btn,
+.continue-btn,
+.tag-btn {
   box-shadow: inset 2.1px 2.1px 2px #C9C9C9, inset -2.1px -2.1px 2px #FFFFFF;
   color: #666;
   margin: 14px 0;
