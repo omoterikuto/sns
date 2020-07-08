@@ -120,6 +120,13 @@ a.shadow-inset {
   box-shadow: 4.8px 4.8px 5px #E1E1E1, -4.8px -4.8px 5px #FFFFFF;
 }
 
+.timeline-title {
+  display: inline-block;
+  box-shadow: 4.8px 4.8px 5px #E1E1E1, -4.8px -4.8px 5px #FFFFFF;
+  color: #ff5643;
+  font-weight: bold;
+}
+
 .edit-btn,
 .continue-btn,
 .tag-btn {
@@ -132,9 +139,23 @@ a.shadow-inset {
   border-radius: 3px;
 }
 
-.timeline-title {
-  display: inline-block;
-  box-shadow: 4.8px 4.8px 5px #E1E1E1, -4.8px -4.8px 5px #FFFFFF;
-  color: #ff5643;
-  font-weight: bold;
+.follow-btn {
+  border: none;
+  width: 130px;
+  border-radius: 3px;
+  background-color: #f8f8f8;
+  box-shadow: inset 3px 3px 5px #DFE0E4, inset -3px -3px 5px #FDFFFF;
+  padding: 5px 0px;
+}
+
+.follow-btn:focus {
+  border: none;
+  outline: none;
+}
+
+.follow-btn-active {
+  color: #fff;
+  background: linear-gradient(145deg, #757BFF, #595DC9);
+  border-radius: 5px;
+  box-shadow: 1.8px 1.8px 9px #DFE0E4, -1.8px -1.8px 9px #FDFFFF;
 }
