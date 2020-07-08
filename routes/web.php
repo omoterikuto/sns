@@ -2,6 +2,7 @@
 
 Auth::routes();
 Route::get('/', 'ArticleController@index')->name('articles.index');
+Route::get('/popular', 'ArticleController@popular')->name('articles.popular');
 Route::resource('/articles', 'ArticleController')->except(['index', 'show'])->middleware('auth');
 Route::resource('/articles', 'ArticleController')->only(['show']);
 Route::prefix('articles')->name('articles.')->middleware('auth')->middleware('auth')->group(function () {

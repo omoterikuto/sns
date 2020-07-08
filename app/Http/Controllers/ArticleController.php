@@ -25,6 +25,16 @@ class ArticleController extends Controller
     ]);
   }
 
+  public function popular()
+  {
+    $articles_obj = Article::withCount('likes')->orderbyRaw('likes_count desc, created_at desc')->paginate(10);
+    $articles = $articles_obj->load(['user', 'likes', 'tags']);
+    return view('articles.popular', [
+      'articles_obj' => $articles_obj,
+      'articles' => $articles,
+    ]);
+  }
+
   public function create()
   {
     $allTagNames = Tag::all()->map(function ($tag) {
