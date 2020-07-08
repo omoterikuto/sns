@@ -4,7 +4,7 @@
       @if(isset($user->user_image))
         <image-modal :image-pass='@json($user->user_image)'></image-modal>
       @else
-        <i class="fas fa-user-circle" style="font-size: 60px;"></i>
+        <i class="fas fa-user-circle profile-noimg"></i>
       @endif
       <h5 class="card-title ml-3 mt-3">
         <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
@@ -30,12 +30,30 @@
   </div>
   <div class="card-body">
     <div class="card-text">
-      <a href="{{ route('users.followings', ['name' => $user->name]) }}" class="text-muted">
-        {{ $user->count_followings }} フォロー
-      </a>
-      <a href="{{ route('users.followers', ['name' => $user->name]) }}" class="text-muted">
-        {{ $user->count_followers }} フォロワー
-      </a>
+      <ul class="nav nav-tabs d-flex p-0 m-0">
+        <li class="nav-item">
+          <a href="#following" class="text-muted nav-item" data-toggle="tab">
+            フォロー  {{ $user->count_followings }}
+          </a>
+        </li>
+        <li class="nav-item ml-2">
+          <a href="#follower" class="text-muted nav-item" data-toggle="tab">
+            フォロワー  {{ $user->count_followers }}
+          </a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="following" class="tab-pane">
+          @foreach($followings as $person)
+            @include('users.person')
+          @endforeach
+        </div>
+        <div id="follower" class="tab-pane">
+          @foreach($followers as $person)
+            @include('users.person')
+          @endforeach
+        </div>
+      </div>
     </div>
   </div>
 </div>

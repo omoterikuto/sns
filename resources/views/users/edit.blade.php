@@ -16,9 +16,9 @@
             <div class="card-body">
               <div class="d-flex flex-row">
                 @if(isset($user->user_image))
-                <image-modal :image-pass='@json($user->user_image)'></image-modal>
+                  <image-modal :image-pass='@json($user->user_image)'></image-modal>
                 @else
-                <i class="fas fa-user-circle" style="font-size: 60px;"></i>
+                  <i class="fas fa-user-circle profile-noimg" style="font-size: 60px;"></i>
                 @endif
                 <div class="ml-auto mb-3">
                   <label for="name">ユーザー名</label>

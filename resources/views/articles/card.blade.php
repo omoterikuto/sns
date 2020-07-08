@@ -1,4 +1,4 @@
-<div class="card mt-3">
+<div class="card mt-3 {{isset($no_animate) ? '' : 'animated slideInUp faster'}}">
   <div class="card-body d-flex flex-row">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
       @if(isset($article->user->user_image))
@@ -67,12 +67,12 @@
       @if(isset($show_all))
         {!! nl2br(e($article->body)) !!}
       @else
-        {!! nl2br(e( Str::limit($article->body, 200 ))) !!}
+        {!! nl2br(e( Str::limit($article->body, 300 ))) !!}
       @endif
     </div>
-    @if(strlen($article->body) > 200 && !isset($show_all))
+    @if(strlen($article->body) > 300 && !isset($show_all))
     <div class="text-right pr-3 mt-2">
-      <a class="shadow-inset px-2 py-1" href="{{ route('articles.show', ['article' => $article]) }}"><small>続きを読む</small></a>
+      <a class="continue-btn px-2 py-1" href="{{ route('articles.show', ['article' => $article]) }}"><small>続きを読む</small></a>
     </div>
     @endif
     <div class="card-body pt-0 pb-2 pl-0">
@@ -88,7 +88,7 @@
     <div class="card-body pt-0 pb-4 pl-0">
       <div class="card-text line-height">
         @endif
-        <a class="shadow-inset" href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
+        <a class="tag-btn py-1 px-2" href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
           {{ $tag->hashtag }}        
         </a>
         @if($loop->last)

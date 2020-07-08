@@ -11,38 +11,21 @@ class UserController extends Controller
 {
   public function show(string $name)
   {
-    $user = User::where('name', $name)->first()->load(['articles.user', 'articles.likes', 'articles.tags']);
+    $user = User::where('name', $name)->first()->load(
+      [
+        'articles.user', 'articles.likes', 'articles.tags', 'followings.followers', 'likes.user', 'likes.likes', 'likes.tags', 'followers.followers'
+      ]
+    );
     $user_articles = $user->articles->sortByDesc('created_at');
-    $user = User::where('name', $name)->first()->load(['likes.user', 'likes.likes', 'likes.tags']);
     $like_articles = $user->likes->sortByDesc('created_at');
+    $followings = $user->followings->sortByDesc('created_at');
+    $followers = $user->followers->sortByDesc('created_at');
     return view('users.show', [
       'user' => $user,
+      'followings' => $followings,
+      'followers' => $followers,
       'user_articles' => $user_articles,
       'like_articles' => $like_articles,
-    ]);
-  }
-
-  public function likes(string $name)
-  {
-  }
-
-  public function followings(string $name)
-  {
-    $user = User::where('name', $name)->first()->load('followings.followers');
-    $followings = $user->followings->sortByDesc('created_at');
-    return view('users.followings', [
-      'user' => $user,
-      'followings' => $followings,
-    ]);
-  }
-
-  public function followers(string $name)
-  {
-    $user = User::where('name', $name)->first()->load('followers.followers');
-    $followers = $user->followers->sortByDesc('created_at');
-    return view('users.followers', [
-      'user' => $user,
-      'followers' => $followers,
     ]);
   }
 
@@ -71,19 +54,21 @@ class UserController extends Controller
   {
     $article_list = array();
     $user = User::where('name', $name)->first();
-    $followings = $user->followings->load(['articles.user', 'articles.likes', 'articles.tags']);
-    foreach ($followings as $following) {
-      $articles_list = array();
-      $articles_list = $following->articles;
-      foreach ($articles_list as $list) {
-        $article_list[] = $list;
+    if ($user->followings->isNotEmpty()) {
+      $followings = $user->followings->load(['articles.user', 'articles.likes', 'articles.tags']);
+      foreach ($followings as $following) {
+        $articles_list = array();
+        $articles_list = $following->articles;
+        foreach ($articles_list as $list) {
+          $article_list[] = $list;
+        }
       }
+      foreach ($article_list as $key => $value) {
+        $id[$key] = $value['created_at'];
+      }
+      array_multisort($id, SORT_DESC, $article_list);
     }
-    foreach ($article_list as $key => $value) {
-      $id[$key] = $value['created_at'];
-    }
-    array_multisort($id, SORT_DESC, $article_list);
-    return view('users.showtl', [
+    return view('users.timeline', [
       'user' => $user,
       'articles' => $article_list,
     ]);
