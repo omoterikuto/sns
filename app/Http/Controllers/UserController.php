@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+
   public function show(string $name)
   {
     $user = User::where('name', $name)->first()->load(
@@ -75,10 +76,16 @@ class UserController extends Controller
   }
   public function edit(string $name)
   {
-    $user = User::where('name', $name)->first();
-    return view('users.edit', [
-      'user' => $user,
-    ]);
+    if (\Auth::user()->name == $name) {
+      $user = User::where('name', $name)->first();
+      return view('users.edit', [
+        'user' => $user,
+      ]);
+    } else {
+      return redirect()->route('users.show', [
+        'name' => $name,
+      ]);
+    }
   }
   public function update(ProfileRequest $request)
   {

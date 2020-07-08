@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+
   public function store(CommentRequest $request, Comment $comment)
   {
     $comment->comment = $request->comment;
@@ -16,7 +17,8 @@ class CommentController extends Controller
     $comment->save();
     return redirect()->route('articles.show', ['article' => $request->article_id]);
   }
-  public function delete(Comment $comment)
+
+  public function destroy(Comment $comment)
   {
     $comment->delete();
     return redirect()->route('articles.show', ['article' => $comment->article_id]);

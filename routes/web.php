@@ -9,7 +9,7 @@ Route::prefix('articles')->name('articles.')->middleware('auth')->middleware('au
   Route::put('/{article}/like', 'ArticleController@like')->name('like');
   Route::delete('/{article}/like', 'ArticleController@unlike')->name('unlike');
   Route::post('/comment', 'CommentController@store')->name('comment');
-  Route::delete('/comment/{comment}', 'CommentController@delete')->name('comment.destroy');
+  Route::delete('/comment/{comment}', 'CommentController@destroy')->name('comment.destroy');
 });
 Route::get('/tags/{name}', 'TagController@show')->name('tags.show');
 Route::prefix('users')->name('users.')->group(function () {
