@@ -8,8 +8,8 @@
     @foreach($articles as $article)
       @include('articles.card')
     @endforeach
-    <div class="d-flex justify-content-center">
+    {{-- <div class="d-flex justify-content-center">
       {{ $articles_obj->links('vendor.pagination.default') }}
-    </div>
+    </div> --}}
   </div>
 @endsection

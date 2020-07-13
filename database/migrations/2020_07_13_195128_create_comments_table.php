@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeyCascade extends Migration
+class CreateCommentsTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,11 +13,14 @@ class AddForeignKeyCascade extends Migration
    */
   public function up()
   {
-    Schema::table('comments', function (Blueprint $table) {
-      $table->dropForeign(['article_id']);
-      $table->dropForeign(['user_id']);
+    Schema::create('comments', function (Blueprint $table) {
+      $table->bigIncrements('id');
+      $table->BigInteger('article_id');
       $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
+      $table->BigInteger('user_id');
       $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+      $table->text('comment');
+      $table->timestamps();
     });
   }
 
@@ -28,7 +31,6 @@ class AddForeignKeyCascade extends Migration
    */
   public function down()
   {
-    Schema::dropColumn('article_id');
-    Schema::dropColumn('user_id');
+    Schema::dropIfExists('comments');
   }
 }
