@@ -12,6 +12,7 @@
 - Material Design Bootstrap 4.8.11
 - jQuery 3.4.1
 - CircleCI 2.1
+- Postgres 9.5.19
 
 ## 環境構築
 - docker
