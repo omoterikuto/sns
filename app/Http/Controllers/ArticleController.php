@@ -17,10 +17,8 @@ class ArticleController extends Controller
 
   public function index()
   {
-    $articles_obj = Article::orderBy('created_at', 'desc')->paginate(10);
-    $articles = $articles_obj->load(['user', 'likes', 'tags']);
+    $articles = Article::with(['user', 'likes', 'tags'])->orderBy('created_at', 'desc')->paginate(10);
     return view('articles.index', [
-      'articles_obj' => $articles_obj,
       'articles' => $articles,
     ]);
   }
