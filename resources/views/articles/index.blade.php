@@ -9,7 +9,7 @@
       @include('articles.card')
     @endforeach
     <div class="d-flex justify-content-center">
-      {{ $articles_obj->links('vendor.pagination.default') }}
+      {{ $articles->links('vendor.pagination.default') }}
     </div>
   </div>
 @endsection

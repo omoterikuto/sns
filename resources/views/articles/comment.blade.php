@@ -50,7 +50,8 @@
               </button>
             </div>
             <form method="POST" action="{{ route('articles.comment.destroy', ['comment' => $comment]) }}">
-              @csrf @method('DELETE')
+              @csrf 
+              @method('DELETE')
               <div class="modal-body">
                 コメントを削除します。よろしいですか？
               </div>

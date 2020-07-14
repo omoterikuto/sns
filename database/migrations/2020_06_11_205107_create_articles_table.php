@@ -30,6 +30,7 @@ class CreateArticlesTable extends Migration
    */
   public function down()
   {
+    Schema::dropIfExists('comments');
     Schema::dropIfExists('articles');
   }
 }
