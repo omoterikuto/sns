@@ -25,7 +25,7 @@ class ProfileRequest extends FormRequest
   public function rules()
   {
     return [
-      'name' => ['required', 'string', 'alpha_num', 'min:3', 'max:16', Rule::unique('App\User')->ignore($this->user()->id)],
+      'name' => ['required', 'string', 'min:3', 'max:16', Rule::unique('App\User')->ignore($this->user()->id)],
       'profile' => ['max:100']
     ];
   }
