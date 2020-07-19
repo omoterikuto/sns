@@ -17,6 +17,12 @@ class ArticleControllerTest extends TestCase
     $response->assertStatus(200)->assertViewIs('articles.index');
   }
 
+  public function testPopular()
+  {
+    $response = $this->get(route('articles.popular'));
+    $response->assertStatus(200)->assertViewIs('articles.popular');
+  }
+
   public function testGuestCreate()
   {
     $response = $this->get(route('articles.create'));
