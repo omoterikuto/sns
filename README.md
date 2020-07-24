@@ -18,7 +18,7 @@
 - docker
 - docker-compose 
 - laradock
-- AWS(EC2、) 
+- AWS(VPC、EC2、RDS) 
 
 ## 機能
 
@@ -57,7 +57,11 @@ vue.jsで非同期による処理。いいね時にアニメーション。
 - phpunitによるテスト
 
 ## 工夫点
+- circleciを使ってEC2に自動デプロイ
+- githubのissue、pullrequest使ってチーム開発の想定
 - ニューモーフィズムデザインでシンプルかつ洗練されたデザインに
 - load、withメソッドによるN+1問題の解決
-
+- fillableプロパティによる不正アクセスの防止
+- ユーザーイメージ表示の際シンボリックでstorageフォルダにアクセス
+- ポリシーにより他のユーザーが記事の編集ができないように
 
