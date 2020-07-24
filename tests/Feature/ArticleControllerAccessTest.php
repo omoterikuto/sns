@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class ArticleControllerTest extends TestCase
+class ArticleControllerAccessTest extends TestCase
 {
   use RefreshDatabase;
 
@@ -15,6 +15,12 @@ class ArticleControllerTest extends TestCase
   {
     $response = $this->get(route('articles.index'));
     $response->assertStatus(200)->assertViewIs('articles.index');
+  }
+
+  public function testPopular()
+  {
+    $response = $this->get(route('articles.popular'));
+    $response->assertStatus(200)->assertViewIs('articles.popular');
   }
 
   public function testGuestCreate()
