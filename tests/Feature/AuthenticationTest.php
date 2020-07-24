@@ -1,62 +1,35 @@
 <?php
 
-namespace Tests\Feature;
-
+use App\Favorite;
 use App\User;
 
 use Tests\TestCase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class AuthenticationTest extends TestCase
+class UserTest extends TestCase
 {
   use RefreshDatabase;
-
-  protected $user;
-
-  public function setUp(): void
-  {
-    parent::setUp();
-
-    // テストユーザ作成
-    $this->user = factory(User::class)->create();
-  }
-
   /**
-   * ログイン認証テスト
+   * A basic feature test example.
+   *
+   * @return void
    */
-  public function testLogin(): void
+
+  public function testRegisterUser()
   {
-    // 作成したテストユーザのemailとpasswordで認証リクエスト
-    $response = $this->json('POST', route('login'), [
-      'email' => $this->user->email,
-      'password' => 'password',
+    $user = factory(User::class)->create();
+    $this->post('/register', ['name' => $user->name, 'email' => $user->email, 'password' => $user->password, 'password_confirmation' => $user->password]);
+    $this->assertDatabaseHas('users', [
+      'name' => $user->name,
+      'email' => $user->email,
+      'password' => $user->password,
+      'user_image' => $user->user_image,
+      'profile' => $user->profile
     ]);
-
-    // 正しいレスポンスが返り、ユーザ名が取得できることを確認
-    $response
-      ->assertStatus(200)
-      ->assertJson(['name' => $this->user->name]);
-
-    // 指定したユーザーが認証されていることを確認
-    $this->assertAuthenticatedAs($this->user);
-  }
-
-  /**
-   * ログアウトテスト
-   */
-  public function testLogout(): void
-  {
-    // actingAsヘルパで現在認証済みのユーザーを指定する
-    $response = $this->actingAs($this->user);
-
-    // ログアウトページへリクエストを送信
-    $response->json('POST', route('logout'));
-
-    // ログアウト後のレスポンスで、HTTPステータスコードが正常であることを確認
-    $response->assertStatus(200);
-
-    // ユーザーが認証されていないことを確認
-    $this->assertGuest();
   }
 }
