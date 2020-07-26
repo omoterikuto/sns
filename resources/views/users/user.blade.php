@@ -25,7 +25,7 @@
   </div>
   <div class="card-body">
     <p>
-      {{ $user->profile }}
+      {!! nl2br(e($user->profile)) !!}
     </p>
   </div>
   <div class="card-body">
