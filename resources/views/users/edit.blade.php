@@ -21,16 +21,16 @@
                   <i class="fas fa-user-circle profile-noimg" style="font-size: 60px;"></i>
                 @endif
                 <div class="ml-auto mb-3">
-                  <label for="name">ユーザー名</label>
+                  <label for="name" class="mb-0">ユーザー名</label>
                   <input class="shadow-inset mb-0 pt-2" type="text" id="name" name="name" required value="{{ $user->name }}">
                 </div>
               </div>
-              <div class="">
-                <label data-browse="ファイルを選択">ユーザー画像</label>
+              <div>
+                <label data-browse="ファイルを選択" class="mb-0">ユーザー画像</label>
                 <input type="file" class="shadow-inset" name="user_image">
               </div>
               <div class="mb-0">
-                <label class="mt-2">プロフィール文</label>
+                <label class="mt-2 mb-0">プロフィール文</label>
                 <textarea class="" id="" name="profile">{{ $user->profile }}</textarea>
               </div>
             </div>

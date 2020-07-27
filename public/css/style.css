@@ -85,6 +85,7 @@ textarea:focus {
 
 .shadow-inset {
   color: inherit;
+  position: relative;
   width: 100%;
   padding: 8px;
   outline: none;
