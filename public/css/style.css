@@ -90,8 +90,12 @@ textarea:focus {
   padding: 8px;
   outline: none;
   border: none;
-  background: #fafafa;
+  background-color: #fafafa;
   border-radius: 5px;
+  -webkit-box-shadow: inset 4.8px 4.8px 5px #E1E1E1, inset -4.8px -4.8px 5px #FFFFFF;
+  -moz-box-shadow: inset 4.8px 4.8px 5px #E1E1E1, inset -4.8px -4.8px 5px #FFFFFF;
+  -o-box-shadow: inset 4.8px 4.8px 5px #E1E1E1, inset -4.8px -4.8px 5px #FFFFFF;
+  -ms-box-shadow: inset 4.8px 4.8px 5px #E1E1E1, inset -4.8px -4.8px 5px #FFFFFF;
   box-shadow: inset 4.8px 4.8px 5px #E1E1E1, inset -4.8px -4.8px 5px #FFFFFF;
 }
 
