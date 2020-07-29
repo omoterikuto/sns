@@ -85,7 +85,6 @@ textarea:focus {
 
 .shadow-inset {
   color: inherit;
-  position: relative;
   width: 100%;
   padding: 8px;
   outline: none;
@@ -97,6 +96,21 @@ textarea:focus {
   -o-box-shadow: inset 4.8px 4.8px 5px #E1E1E1, inset -4.8px -4.8px 5px #FFFFFF;
   -ms-box-shadow: inset 4.8px 4.8px 5px #E1E1E1, inset -4.8px -4.8px 5px #FFFFFF;
   box-shadow: inset 4.8px 4.8px 5px #E1E1E1, inset -4.8px -4.8px 5px #FFFFFF;
+}
+
+@media screen and (max-width: 480px) {
+  .shadow-inset {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#ededed));
+    box-shadow: 2.0px 2.0px 4px #CECECE, -2.0px -2.0px 4px #FFFFFF;
+  }
+  textarea,
+  textarea:focus {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#f5f5f5));
+    box-shadow: 2.0px 2.0px 4px #CECECE, -2.0px -2.0px 4px #FFFFFF;
+  }
+  .ti-input {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#f5f5f5));
+  }
 }
 
 a.shadow-inset {
@@ -114,6 +128,11 @@ a.shadow-inset {
 
 .vue-tags-input {
   background: #fafafa !important;
+  padding: 0;
+}
+
+.ti-input {
+  padding: 8px !important;
 }
 
 .ti-new-tag-input {
